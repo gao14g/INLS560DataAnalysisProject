@@ -6,7 +6,7 @@ from helpers import *
 # Create initial options list 
 
 options = """Option 1 - General Statistics for Each Trade Station
-Option 2 - All Statistics for Specific Trade Stations
+Option 2 - Statistics for Specific Trade Stations
 Option 3 - All Statistics for Specific Items for All Trade Stations
 Option 4 - Specific Statistics for Items Based on User Input
 * type "Help" for extra tips and instructions
@@ -20,7 +20,9 @@ Enjoy!""")
 while status:
     print(options)
     choice = input("Choose one of the options above: ")
-    if choice == "2":
+    if choice == "1":
+        option1()
+    elif choice == "2":
         option2()
     elif choice == "3":
         option3()
