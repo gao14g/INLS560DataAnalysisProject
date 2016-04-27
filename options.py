@@ -7,7 +7,9 @@ def option1():
     status = True
     while status:
         print (general_options)
+        print()
         answer = input("Choose one of the options above: ")
+        print()
         if answer == "1":
             print("Here are some general statistics about the data files")
             print("Amarr:")
@@ -182,17 +184,24 @@ def option1():
 # Define function for all option 2 functionalities      
 def option2():
     list = ["1","2","3","4","5"]
+    print()
     print("You have chosen to see statistics for specific trade stations")
+    print()
     status = True
     while status:
         print (trade_stations)
+        print()
         station = input("Choose which station you would like to use: ")
+        print()
         if station == "1":
             going = True
             print("You have chosen Amarr.")
+            print()
             while going:
                 print(station_options)
+                print()
                 choice = input("Choose one of the options above: ")
+                print()
                 if choice == "1":
                     all_stats(amarr_dict)
                 if choice == "2":
@@ -210,9 +219,12 @@ def option2():
         if station == "2":
             going = True
             print("You have chosen Dodixie.")
+            print()
             while going:
                 print(station_options)
+                print()
                 choice = input("Choose one of the options above: ")
+                print()
                 if choice == "1":
                     all_stats(dodixie_dict)
                 if choice == "2":
@@ -229,10 +241,13 @@ def option2():
                     continue
         if station == "3":
             going = True
-            print("You have chosen Jita")
+            print("You have chosen Jita.")
+            print()
             while going:
                 print(station_options)
+                print()
                 choice = input("Choose one of the options above: ")
+                print()
                 if choice == "1":
                     all_stats(jita_dict)
                 if choice == "2":
@@ -250,6 +265,7 @@ def option2():
         if station == "4":
             going = True
             print("You have chosen Rens.")
+            print()
             while going:
                 print(station_options)
                 choice = input("Choose one of the options above: ")
@@ -270,6 +286,7 @@ def option2():
         if station == "5":
             status = False
         if station not in list:
+            print()
             print("Error: Invalid Input.")
             print()
             continue
@@ -319,10 +336,14 @@ def option4():
     status = True
     while status:
         print(spec_stats_options)
+        print()
         station = input("Choose an option above: ")
+        print()
         if station == "1":
             print (trade_stations)
+            print()
             station_name = input("Choose the station you want to see: ")
+            print()
             if station_name == "1":
                 spec_stats(amarr_dict)
             if station_name == "2":
@@ -339,8 +360,3 @@ def option4():
             print("Error: Invalid Input.")
             print()
             continue
-
-def option5():
-    filename = input("Please input the name of your file: ")
-    my_dict = build_dict(filename)
-    return my_dict

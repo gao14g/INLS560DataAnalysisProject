@@ -4,7 +4,7 @@ trade_stations = """Option 1 - Amarr
 Option 2 - Dodixie
 Option 3 - Jita
 Option 4 - Rens
-Option 6 - Go Back to the Main Menu"""
+Option 5 - Go Back to the Main Menu"""
   
 # Create options for choosing to see certain types of statistics 
 station_options = """Option 1 - Search for All Statistics for Specific Items
@@ -126,6 +126,7 @@ def all_stats(trade_station):
             going = True
             while going:
                 answer = input("If you want to search for another item, type '1'. If you want to go back to the menu, type '2': ")
+                print()
                 if answer == "1":
                     status = True
                     going = False
@@ -153,6 +154,7 @@ def buy_stats(trade_station):
             going = True
             while going:
                 answer = input("If you want to search for another item, type '1'. If you want to go back to the menu, type '2': ")
+                print()
                 if answer == "1":
                     status = True
                     going = False
@@ -180,6 +182,7 @@ def sell_stats(trade_station):
             going = True
             while going:
                 answer = input("If you want to search for another item, type '1'. If you want to go back to the menu, type '2': ")
+                print()
                 if answer == "1":
                     status = True
                     going = False
@@ -286,6 +289,7 @@ def spec_stats(trade_station):
                 going = True
                 while going:
                     answer = input("If you want to search for another item, type '1'. If you want to go back to the menu, type '2': ")
+                    print()
                     if answer == "1":
                         status = True
                         going = False
@@ -341,6 +345,7 @@ def all_spec_stats():
                 going = True
                 while going:
                     answer = input("If you want to search for another item, type '1'. If you want to go back to the menu, type '2': ")
+                    print()
                     if answer == "1":
                         status = True
                         going = False

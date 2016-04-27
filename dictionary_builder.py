@@ -107,5 +107,6 @@ def build_dict(filename):
             new_dict[word] = {"ID":row[2],"Buy Vol":row[3],"Buy Avg":row[4],"Buy Max":row[5],"Buy Min":row[6],"Buy StdDev":row[7],"Buy Median":row[8],"Buy Percentile":row[9],"Sell Vol":row[10],"Sell Avg":row[11],"Sell Max":row[12],"Sell Min":row[13],"Sell StdDev":row[14],"Sell Median":row[15],"Sell Percentile":row[16]}
     return new_dict
 
-my_dict = build_dict("test.tsv")
-print(my_dict)
+# filename = raw_input()
+# my_dict = build_dict(filename)
+# print(my_dict)
