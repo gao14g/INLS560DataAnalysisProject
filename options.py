@@ -342,4 +342,5 @@ def option4():
 
 def option5():
     filename = input("Please input the name of your file: ")
-    build_dict(filename)
+    my_dict = build_dict(filename)
+    return my_dict

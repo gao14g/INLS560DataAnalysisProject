@@ -22,6 +22,7 @@ Enjoy!""")
 while status:
     print(options)
     choice = input("Choose one of the options above: ")
+    choice = str(choice)
     if choice == "1":
         option1()
     elif choice == "2":
@@ -30,29 +31,29 @@ while status:
         option3()
     elif choice == "4":
         option4()
-    # elif choice == "5":
-    #     option5()
-    #     going = True
-    #     while going:
-    #         print(options)
-    #         choice = input("Choose one of the options above: ")
-    #         if choice == "1":
-    #             option1_2()
-    #         elif choice == "2":
-    #             option2_2()
-    #         elif choice == "3":
-    #             option3_2()
-    #         elif choice == "4":
-    #             option4_2()
-    #         elif choice.lower() == "help":
-    #             help_message()
-    #         elif choice.lower() == "exit":
-    #             print("Thank you for your time! Please come back for all your Eve Online data analysis needs!")
-    #             status = False
-    #         else:
-    #             print("Error: Invalid input.")
-    #             print()
-    #             continue
+    elif choice == "5":
+        option5()
+        going = True
+        while going:
+            print(options)
+            choice = input("Choose one of the options above: ")
+            if choice == "1":
+                option1_2()
+            elif choice == "2":
+                option2_2()
+            elif choice == "3":
+                option3_2()
+            elif choice == "4":
+                option4_2()
+            elif choice.lower() == "help":
+                help_message()
+            elif choice.lower() == "exit":
+                print("Thank you for your time! Please come back for all your Eve Online data analysis needs!")
+                status = False
+            else:
+                print("Error: Invalid input.")
+                print()
+                continue
     elif choice.lower() == "help":
         help_message()
     elif choice.lower() == "exit":

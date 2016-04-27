@@ -97,7 +97,6 @@ def build_dict(filename):
     
     for row in new_table:
         del row[17:len(new_table)+1]    
-    global new_dict
     new_dict = {}
     for row in new_table[1:]:
         word = row[1]
@@ -107,3 +106,6 @@ def build_dict(filename):
         else:
             new_dict[word] = {"ID":row[2],"Buy Vol":row[3],"Buy Avg":row[4],"Buy Max":row[5],"Buy Min":row[6],"Buy StdDev":row[7],"Buy Median":row[8],"Buy Percentile":row[9],"Sell Vol":row[10],"Sell Avg":row[11],"Sell Max":row[12],"Sell Min":row[13],"Sell StdDev":row[14],"Sell Median":row[15],"Sell Percentile":row[16]}
     return new_dict
+
+my_dict = build_dict("test.tsv")
+print(my_dict)
