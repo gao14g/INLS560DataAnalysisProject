@@ -1,9 +1,10 @@
 from dictionary_builder import *
 from helpers import *
 
+
 # Define function for all option 1 functionalities
 def option1():
-    list = ["1","2","3"]
+    list1 = ["1","2","3","help"]
     status = True
     while status:
         print (general_options)
@@ -137,6 +138,7 @@ def option1():
             print("Press Enter to Go Back to the Option 1 Menu")
             input()
         if answer == "2":
+            print("Each * = 10")
             print("Amarr: ")
             gen_stats(amarr_dict,"Buy Avg")
             print("This histogram is based on Buy Average.")
@@ -175,7 +177,9 @@ def option1():
             input()
         if answer == "3":
             status = False
-        if answer not in list:
+        elif answer.lower() == "help":
+            help_message()
+        if answer not in list1:
             print("Error: Invalid Input.")
             print()
             continue
@@ -183,7 +187,7 @@ def option1():
 
 # Define function for all option 2 functionalities      
 def option2():
-    list = ["1","2","3","4","5"]
+    list1 = ["1","2","3","4","5","help"]
     print()
     print("You have chosen to see statistics for specific trade stations")
     print()
@@ -212,7 +216,9 @@ def option2():
                     sell_stats(amarr_dict)
                 if choice == "5":
                     going = False
-                if choice not in list:
+                if choice.lower() == "help":
+                    help_message()
+                if choice not in list1:
                     print("Error: Invalid Input.")
                     print()
                     continue
@@ -235,7 +241,9 @@ def option2():
                     sell_stats(dodixie_dict)
                 if choice == "5":
                     going = False
-                if choice not in list:
+                if choice.lower() == "help":
+                    help_message()
+                if choice not in list1:
                     print("Error: Invalid Input.")
                     print()
                     continue
@@ -258,7 +266,9 @@ def option2():
                     sell_stats(jita_dict)
                 if choice == "5":
                     going = False
-                if choice not in list:
+                if choice.lower() == "help":
+                    help_message()
+                if choice not in list1:
                     print("Error: Invalid Input.")
                     print()
                     continue
@@ -279,13 +289,17 @@ def option2():
                     sell_stats(rens_dict)
                 if choice == "5":
                     going = False
-                if choice not in list:
+                if choice.lower() == "help":
+                    help_message()
+                if choice not in list1:
                     print("Error: Invalid Input.")
                     print()
                     continue
         if station == "5":
             status = False
-        if station not in list:
+        elif station.lower() == "help":
+            help_message()
+        if station not in list1:
             print()
             print("Error: Invalid Input.")
             print()
@@ -294,7 +308,7 @@ def option2():
 
 # Define function for all option 3 functionalities
 def option3():
-    list = ["1","2"]
+    list1 = ["1","2","help"]
     status = True
     while status:
         answer = input("Please input an item name: ")
@@ -322,7 +336,9 @@ def option3():
                 elif answer == "2":
                     status = False
                     going = False
-                if answer not in list:
+                elif answer.lower() == "help":
+                    help_message()
+                if answer not in list1:
                     print("Error: Invalid Input.")
                     print()
                     continue
@@ -332,7 +348,8 @@ def option3():
 
 # Define function for all option 4 functionalities
 def option4():
-    list = ["1","2","3"]
+    list1 = ["1","2","3","help"]
+    list2 = ["1","2","3","4","help"]
     status = True
     while status:
         print(spec_stats_options)
@@ -340,23 +357,37 @@ def option4():
         station = input("Choose an option above: ")
         print()
         if station == "1":
-            print (trade_stations)
-            print()
-            station_name = input("Choose the station you want to see: ")
-            print()
-            if station_name == "1":
-                spec_stats(amarr_dict)
-            if station_name == "2":
-                spec_stats(dodixie_dict)
-            if station_name == "3":
-                spec_stats(jita_dict)
-            if station_name == "4":
-                spec_stats(rens_dict)
+            going = True
+            while going:
+                print (trade_stations)
+                print()
+                station_name = input("Choose the station you want to see: ")
+                print()
+                if station_name == "1":
+                    spec_stats(amarr_dict)
+                    going = False
+                if station_name == "2":
+                    spec_stats(dodixie_dict)
+                    going = False
+                if station_name == "3":
+                    spec_stats(jita_dict)
+                    going = False
+                if station_name == "4":
+                    spec_stats(rens_dict)
+                    going = False
+                if station_name.lower() == "help":
+                    help_message()
+                if station_name not in list2:
+                    print("Error: Invalid Input.")
+                    print()
+                    continue
         if station == "2":
             all_spec_stats()
         if station == "3":
             status = False
-        if station not in list:
+        if station.lower() == "help":
+            help_message()
+        if station not in list1:
             print("Error: Invalid Input.")
             print()
             continue

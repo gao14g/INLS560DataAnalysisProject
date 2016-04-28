@@ -2,7 +2,10 @@ from dictionary_builder import *
 from helpers import *
 from options import *
 
+
+# Define overall function to work with a new user data file
 def option5():
+# Define options for main menu
     options = """Option 1 - General Statistics for Each Trade Station
 Option 2 - Statistics for Specific Trade Stations
 Option 3 - All Statistics for Specific Items for All Trade Stations
@@ -10,6 +13,7 @@ Option 4 - Specific Statistics for Items Based on User Input
 * type "Help" for extra tips and instructions
 * type "Exit" to exit the program"""
 
+# Define options for the different trade stations
     trade_stations_2 = """Option 1 - Amarr
 Option 2 - Dodixie
 Option 3 - Jita
@@ -17,9 +21,10 @@ Option 4 - Rens
 Option 5 - User File
 Option 6 - Go Back to the Main Menu"""
 
+
     # Define function for all option 1 functionalities
     def option1_2():
-        list = ["1","2","3"]
+        list1 = ["1","2","3","help"]
         status = True
         while status:
             print (general_options)
@@ -231,7 +236,9 @@ Option 6 - Go Back to the Main Menu"""
                 input()
             if answer == "3":
                 status = False
-            if answer not in list:
+            if answer.lower() == "help":
+                help_message()
+            if answer not in list1:
                 print("Error: Invalid Input.")
                 print()
                 continue
@@ -239,7 +246,8 @@ Option 6 - Go Back to the Main Menu"""
     
     # Define function for all option 2 functionalities      
     def option2_2():
-        list = ["1","2","3","4","5","6"]
+        list1 = ["1","2","3","4","5","6","help"]
+        list2 = ["1","2","3","4","5","help"]
         print("You have chosen to see statistics for specific trade stations")
         print()
         status = True
@@ -267,7 +275,9 @@ Option 6 - Go Back to the Main Menu"""
                         sell_stats(amarr_dict)
                     if choice == "5":
                         going = False
-                    if choice not in list:
+                    if choice.lower() == "help":
+                        help_message()
+                    if choice not in list2:
                         print("Error: Invalid Input.")
                         print()
                         continue
@@ -290,7 +300,9 @@ Option 6 - Go Back to the Main Menu"""
                         sell_stats(dodixie_dict)
                     if choice == "5":
                         going = False
-                    if choice not in list:
+                    if choice.lower() == "help":
+                        help_message()
+                    if choice not in list2:
                         print("Error: Invalid Input.")
                         print()
                         continue
@@ -313,7 +325,9 @@ Option 6 - Go Back to the Main Menu"""
                         sell_stats(jita_dict)
                     if choice == "5":
                         going = False
-                    if choice not in list:
+                    if choice.lower() == "help":
+                        help_message()
+                    if choice not in list2:
                         print("Error: Invalid Input.")
                         print()
                         continue
@@ -336,7 +350,9 @@ Option 6 - Go Back to the Main Menu"""
                         sell_stats(rens_dict)
                     if choice == "5":
                         going = False
-                    if choice not in list:
+                    if choice.lower() == "help":
+                        help_message()
+                    if choice not in list2:
                         print("Error: Invalid Input.")
                         print()
                         continue
@@ -359,13 +375,17 @@ Option 6 - Go Back to the Main Menu"""
                         sell_stats(my_dict)
                     if choice == "5":
                         going = False
-                    if choice not in list:
+                    if choice.lower() == "help":
+                        help_message()
+                    if choice not in list2:
                         print("Error: Invalid Input.")
                         print()
                         continue
             if station == "6":
                 status = False
-            if station not in list:
+            if station.lower() == "help":
+                help_message()
+            if station not in list1:
                 print("Error: Invalid Input.")
                 print()
                 continue
@@ -373,7 +393,7 @@ Option 6 - Go Back to the Main Menu"""
     
     # Define function for all option 3 functionalities
     def option3_2():
-        list = ["1","2"]
+        list1 = ["1","2","help"]
         status = True
         while status:
             answer = input("Please input an item name: ")
@@ -405,7 +425,9 @@ Option 6 - Go Back to the Main Menu"""
                     elif answer == "2":
                         status = False
                         going = False
-                    if answer not in list:
+                    elif answer.lower() == "help":
+                        help_message()
+                    if answer not in list1:
                         print("Error: Invalid Input.")
                         print()
                         continue
@@ -415,7 +437,7 @@ Option 6 - Go Back to the Main Menu"""
     
     # Define function for all option 4 functionalities
     def option4_2():
-        list = ["1","2","3"]
+        list1 = ["1","2","3","help"]
         status = True
         while status:
             print(spec_stats_options)
@@ -423,32 +445,54 @@ Option 6 - Go Back to the Main Menu"""
             station = input("Choose an option above: ")
             print()
             if station == "1":
-                print (trade_stations_2)
-                print()
-                station_name = input("Choose the station you want to see: ")
-                print()
-                if station_name == "1":
-                    spec_stats(amarr_dict)
-                if station_name == "2":
-                    spec_stats(dodixie_dict)
-                if station_name == "3":
-                    spec_stats(jita_dict)
-                if station_name == "4":
-                    spec_stats(rens_dict)
-                if station_name == "5":
-                    spec_stats(my_dict)
+                going = True
+                while going:
+                    print (trade_stations_2)
+                    print()
+                    station_name = input("Choose the station you want to see: ")
+                    print()
+                    if station_name == "1":
+                        spec_stats(amarr_dict)
+                        going = False
+                    if station_name == "2":
+                        spec_stats(dodixie_dict)
+                        going = False
+                    if station_name == "3":
+                        spec_stats(jita_dict)
+                        going = False
+                    if station_name == "4":
+                        spec_stats(rens_dict)
+                        going = False
+                    if station_name.lower() == "help":
+                        help_message()
+                    if station_name not in list2:
+                        print("Error: Invalid Input.")
+                        print()
+                        continue
             if station == "2":
                 all_spec_stats()
             if station == "3":
                 status = False
-            if station not in list:
+            if station.lower() == "help":
+                help_message()
+            if station not in list1:
                 print("Error: Invalid Input.")
                 print()
                 continue
-    filename = input("Please input the name of your file: ")
-    print()
-    global my_dict
-    my_dict = build_dict(filename)
+
+
+# Allows user to input their own file, tests to make sure is actually there, and if it is, outputs the main menu options
+    status = True
+    while status:
+        filename = input("Please input the name of your file: ")
+        print()
+        global my_dict
+        try:
+            my_dict = build_dict(filename)
+            break
+        except:
+            print("Error: No filename found.")
+            print()
     going = True
     while going:
         print(options)

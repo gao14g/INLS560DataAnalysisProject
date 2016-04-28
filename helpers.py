@@ -1,4 +1,5 @@
 from dictionary_builder import *
+
 # Create options for choosing a certain station
 trade_stations = """Option 1 - Amarr
 Option 2 - Dodixie
@@ -21,6 +22,7 @@ Option 3 - Go Back to the Main Menu"""
 spec_stats_options = """Option 1 - See Items from a Specific Stations
 Option 2 - See Items from All Stations
 Option 3 - Go Back to the Main Menu"""
+
 
 # Define function to determine ranges of items and print out histograms for those ranges
 def gen_stats(trade_station,column):
@@ -98,6 +100,7 @@ def max_stats(trade_station,column):
             largest = number
     return(largest)
 
+
 # Define function to calculate the min number for each column
 def min_stats(trade_station,column):
     items = []
@@ -111,6 +114,7 @@ def min_stats(trade_station,column):
         if smallest is None or number < smallest:
             smallest = number
     return(smallest)
+
 
 # Define function to show all statistics for a certain item
 def all_stats(trade_station):
@@ -141,9 +145,10 @@ def all_stats(trade_station):
             print("Error: Item name not found. Please try again.")
             print()
 
+
 # Define function to show all the buy order statistics for a certain item
 def buy_stats(trade_station):
-    list = ["1","2"]
+    list = ["1","2","help"]
     status = True
     while status:
         answer = input("Please input an item name: ")
@@ -161,6 +166,8 @@ def buy_stats(trade_station):
                 elif answer == "2":
                     status = False
                     going = False
+                elif answer.lower() == "help":
+                    help_message()
                 if answer not in list:
                     print("Error: Invalid Input.")
                     print()
@@ -169,9 +176,10 @@ def buy_stats(trade_station):
             print("Error: Item name not found. Please try again.")
             print()
 
+
 # Define function to show all the sell order statistics for a certain item
 def sell_stats(trade_station):
-    list = ["1","2"]
+    list = ["1","2","help"]
     status = True
     while status:
         answer = input("Please input an item name: ")
@@ -189,6 +197,8 @@ def sell_stats(trade_station):
                 elif answer == "2":
                     status = False
                     going = False
+                elif answer.lower() == "help":
+                    help_message()
                 if answer not in list:
                     print("Error: Invalid Input.")
                     print()
@@ -196,6 +206,7 @@ def sell_stats(trade_station):
         except:
             print("Error: Item name not found. Please try again.")
             print()
+
 
 # Define function to print a list of all the columns for a certain item
 def print_list(dictionary,answer):
@@ -228,6 +239,7 @@ def print_list(dictionary,answer):
     print ("Sell Standard Deviation:", sell_sdv)
     print ("Sell Percentile:", sell_perc)
 
+
 # Define a function to print the buy order statistics for a certain item
 def print_buy_stats(dictionary,answer):
     buy_vol = dictionary[answer]["Buy Vol"]
@@ -245,6 +257,7 @@ def print_buy_stats(dictionary,answer):
     print ("Buy Percentile:", buy_perc)
     print()
 
+
 # Define a function to print the sell order statistics for a certain item
 def print_sell_stats(dictionary,answer):
     sell_vol = dictionary[answer]["Sell Vol"]
@@ -261,9 +274,10 @@ def print_sell_stats(dictionary,answer):
     print ("Sell Standard Deviation:", sell_sdv)
     print ("Sell Percentile:", sell_perc)
 
+
 # Define a function that allows the user to input the columns they want to see for a certain item for certain trade stations
 def spec_stats(trade_station):
-    list = ["1","2"]
+    list = ["1","2","help"]
     status = True
     while status:  
         item = input("Please input an item name: ")
@@ -296,6 +310,8 @@ def spec_stats(trade_station):
                     elif answer == "2":
                         status = False
                         going = False
+                    elif answer.lower() == "help":
+                        help_message()
                     if answer not in list:
                         print("Error: Invalid Input.")
                         print()
@@ -304,9 +320,10 @@ def spec_stats(trade_station):
             print("Error: Item doesn't exist. Please try again.")
             print()
 
+
 # Define a function that allows the user to input the columsn they want to see for a certain item for all trade stations
 def all_spec_stats():
-    list = ["1","2"]
+    list = ["1","2","help"]
     status = True
     while status:  
         item = input("Please input an item name: ")
@@ -352,6 +369,8 @@ def all_spec_stats():
                     elif answer == "2":
                         status = False
                         going = False
+                    elif answer.lower() == "help":
+                        help_message()
                     if answer not in list:
                         print("Error: Invalid Input.")
                         print()
@@ -359,6 +378,7 @@ def all_spec_stats():
         except:
             print("Error: Item doesn't exist. Please try again.")
             print()
+
 
 # Define a function that prints out helpful tips and information for the user
 def help_message():

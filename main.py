@@ -3,13 +3,16 @@
 from options import *
 from imported_file_options import *
 
+
+# Create main options menu
 options = """Option 1 - General Statistics for Each Trade Station
 Option 2 - Statistics for Specific Trade Stations
 Option 3 - All Statistics for Specific Items for All Trade Stations
 Option 4 - Specific Statistics for Items Based on User Input
 Option 5 - Input Your Own Data File
-* type "Help" for extra tips and instructions
+* type "Help" for extra tips and instructions (This can be accessed at every menu)
 * type "Exit" to exit the program"""
+
 
 # Loop through the initial set of options
 status = True
