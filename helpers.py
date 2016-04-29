@@ -1,5 +1,6 @@
 from dictionary_builder import *
 
+
 # Create options for choosing a certain station
 trade_stations = """Option 1 - Amarr
 Option 2 - Dodixie
@@ -118,9 +119,9 @@ def min_stats(trade_station,column):
 
 # Define function to show all statistics for a certain item
 def all_stats(trade_station):
-    list = ["1","2"]
-    going = True
-    while going:
+    list1 = ["1","2","help"]
+    status = True
+    while status:
         answer = input("Please input an item name: ")
         answer = answer.lower()
         print()
@@ -137,7 +138,9 @@ def all_stats(trade_station):
                 elif answer == "2":
                     status = False
                     going = False
-                if answer not in list:
+                elif answer.lower() == "help":
+                    help_message()
+                if answer not in list1:
                     print("Error: Invalid Input.")
                     print()
                     continue
@@ -148,7 +151,7 @@ def all_stats(trade_station):
 
 # Define function to show all the buy order statistics for a certain item
 def buy_stats(trade_station):
-    list = ["1","2","help"]
+    list1 = ["1","2","help"]
     status = True
     while status:
         answer = input("Please input an item name: ")
@@ -156,6 +159,7 @@ def buy_stats(trade_station):
         print()
         try:
             print_buy_stats(trade_station,answer)
+            print()
             going = True
             while going:
                 answer = input("If you want to search for another item, type '1'. If you want to go back to the menu, type '2': ")
@@ -168,7 +172,7 @@ def buy_stats(trade_station):
                     going = False
                 elif answer.lower() == "help":
                     help_message()
-                if answer not in list:
+                if answer not in list1:
                     print("Error: Invalid Input.")
                     print()
                     continue
@@ -187,6 +191,7 @@ def sell_stats(trade_station):
         print()
         try:
             print_sell_stats(trade_station,answer)
+            print()
             going = True
             while going:
                 answer = input("If you want to search for another item, type '1'. If you want to go back to the menu, type '2': ")
@@ -255,7 +260,6 @@ def print_buy_stats(dictionary,answer):
     print ("Buy Min:", buy_min)
     print ("Buy Standard Deviation:", buy_sdv)
     print ("Buy Percentile:", buy_perc)
-    print()
 
 
 # Define a function to print the sell order statistics for a certain item

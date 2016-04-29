@@ -13,6 +13,7 @@ def option1():
         print()
         if answer == "1":
             print("Here are some general statistics about the data files")
+            print()
             print("Amarr:")
             print("The Highest Buy Volume is:", max_stats(amarr_dict,"Buy Vol"))
             print("The Highest Buy Average is:", max_stats(amarr_dict,"Buy Avg"))
@@ -330,6 +331,7 @@ def option3():
             going = True
             while going:
                 answer = input("If you want to search for another item, type '1'. If you want to go back to the menu, type '2': ")
+                print()
                 if answer == "1":
                     status = True
                     going = False
@@ -349,7 +351,7 @@ def option3():
 # Define function for all option 4 functionalities
 def option4():
     list1 = ["1","2","3","help"]
-    list2 = ["1","2","3","4","help"]
+    list2 = ["1","2","3","4","5","help"]
     status = True
     while status:
         print(spec_stats_options)
@@ -374,6 +376,8 @@ def option4():
                     going = False
                 if station_name == "4":
                     spec_stats(rens_dict)
+                    going = False
+                if station_name == "5":
                     going = False
                 if station_name.lower() == "help":
                     help_message()

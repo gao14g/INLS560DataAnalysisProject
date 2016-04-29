@@ -33,6 +33,7 @@ Option 6 - Go Back to the Main Menu"""
             print()
             if answer == "1":
                 print("Here are some general statistics about the data files")
+                print()
                 print("Amarr:")
                 print("The Highest Buy Volume is:", max_stats(amarr_dict,"Buy Vol"))
                 print("The Highest Buy Average is:", max_stats(amarr_dict,"Buy Avg"))
@@ -438,6 +439,7 @@ Option 6 - Go Back to the Main Menu"""
     # Define function for all option 4 functionalities
     def option4_2():
         list1 = ["1","2","3","help"]
+        list2 = ["1","2","3","4","5","6","help"]
         status = True
         while status:
             print(spec_stats_options)
@@ -462,6 +464,11 @@ Option 6 - Go Back to the Main Menu"""
                         going = False
                     if station_name == "4":
                         spec_stats(rens_dict)
+                        going = False
+                    if station_name == "5":
+                        spec_stats(my_dict)
+                        going = False
+                    if station_name == "6":
                         going = False
                     if station_name.lower() == "help":
                         help_message()
@@ -516,3 +523,4 @@ Option 6 - Go Back to the Main Menu"""
             print("Error: Invalid input.")
             print()
             continue
+        
